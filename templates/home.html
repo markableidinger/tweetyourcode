@@ -8,8 +8,9 @@
     <h1>Tweet your Code</h1>
     <form action='/tweet_auth' method=post>
         <select id='language' name='language'>
-          <option value="python">Python</option>
-          <option value="javascript">Javascript</option>
+            {% for lexer in lexers %}
+            <option name="{{lexer}}">{{lexer}}</option>
+            {% endfor %}
         </select>
         <textarea name='text' id='code_text' name=text rows=5 cols=40></textarea>
         <button id='preview'>Preview</button>

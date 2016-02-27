@@ -2,7 +2,6 @@
 
 from flask import Flask, render_template, request, send_file, jsonify,\
 send_from_directory, session, redirect
-from text2img import draw_highlighted_text
 import io
 import base64
 import json
@@ -10,6 +9,11 @@ from twython import Twython
 from pygments import highlight
 from pygments.formatters import ImageFormatter
 from pygments.lexers import get_lexer_by_name
+
+
+SUPPORTED_LEXERS = ['Text', 'Python', 'Python3', 'NumPy', 'Javascript',
+                    'Java', 'Ruby', 'C', 'C++', 'C#', 'JQuery', 'PHP', 'Swift',
+                    'HTML', 'CSS', 'R', 'SQL', 'Brainfuck']
 
 
 def draw_highlighted_text(text, lexer_name):
@@ -26,7 +30,7 @@ def send_js(path):
 
 @app.route('/', methods=['GET'])
 def home():
-    return render_template('home.html')
+    return render_template('home.html', lexers=SUPPORTED_LEXERS)
 
 
 @app.route('/download', methods=['POST'])
