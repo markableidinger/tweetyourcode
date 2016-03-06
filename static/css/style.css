@@ -1,0 +1,19 @@
+body {
+    background-color: #1dcaff;
+}
+
+.top-dropdown {
+    padding-left: 0px;
+}
+
+.line-numbers {
+    margin-top: 30px
+}
+
+.header {
+    color: white;
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    font-family: 'Open Sans', sans-serif;
+}
