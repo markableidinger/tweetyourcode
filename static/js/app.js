@@ -10,6 +10,7 @@ $(document).ready(function(){
                  line_numbers: $('#line_numbers:checked').length},
                 function(data){
                     $('#preview_img').html(data['tag'])
+                    $('#preview_img').addClass('white-background')
                 })
         }
     })
@@ -21,4 +22,8 @@ $(document).ready(function(){
             $('#code_form').attr('action', '/submit_form')
         }
     })
+    $('[data-toggle="popover"]').popover({
+        'template': '<div class="popover popover-wider" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+    })
+    $('[data-toggle="tooltip"]').tooltip()
 })

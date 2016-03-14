@@ -7,52 +7,82 @@
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/style.css" rel="stylesheet">
     <script type="text/javascript" src="static/js/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="static/js/app.js"></script>
 </head>
 <body>
     <h1 class='header'>Tweet Your Code</h1>
-    <div>
+    <div class='container white-background'>
+        <h2 class='summary'>Turn your code into a formatted, syntax-highlighted image to share on Twitter.</h2>
         <form action='/submit_form' method=post id='code_form'>
-            <div class='container'>
-                <div class='form-group col-md-5 top-dropdown'>
-                    <label>Coding Language:</label>
-                    <select id='language' name='language' class='form-control'>
-                        {% for lexer in lexers %}
-                        <option name="{{lexer}}">{{lexer}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class='form-group col-md-5 top-dropdown'>
-                    <label>Highlighting Style:</label>
-                    <select id='style' name='style' class='form-control'>
-                        {% for style in styles %}
-                        <option name="{{style}}">{{style}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class='form-group col-md-2 line-numbers'>
-                    <label>
-                        <input type="checkbox" name='line_numbers' id='line_numbers'> Include line numbers
-                    </label>
-                </div>
+            <div class='form-group col-md-5'>
+                <label>Coding Language: 
+                    <sup>
+                        <a href='#' data-toggle="popover" data-trigger="focus" data-placement="top" title='Choose the language that your code is written in. This will determine how it is parsed and highlighted.'>[?]</a>
+                    </sup>
+                </label>
+                <select id='language' name='language' class='form-control'>
+                    {% for lexer in lexers %}
+                    <option name="{{lexer}}">{{lexer}}</option>
+                    {% endfor %}
+                </select>
             </div>
-            <div class='container'>
-                <div class='form-group'>
-                    <label>Your code:</label>
-                    <textarea name='code_text' id='code_text' class='form-control' maxlength='5000' placeholder='Your Code Here (Max Length 5000 chars)'></textarea>
-                </div>
-                <div class='form-group'>
-                    <label>Your tweet:</label>
-                    <textarea name='tweet_text' id='tweet_text' class='form-control' maxlength='110' placeholder='Max Length 110 chars'></textarea>
-                </div>
+            <div class='form-group col-md-5'>
+                <label>Highlighting Style: 
+                    <sup>
+                        <a href='#' data-toggle="popover" data-trigger="focus" data-placement="top" title='This option determines the colors of the generated image. In order to preview the image, type in your code and click the "preview image" button.'>[?]</a>
+                    </sup>
+                </label>
+                <select id='style' name='style' class='form-control'>
+                    {% for style in styles %}
+                    <option name="{{style}}">{{style}}</option>
+                    {% endfor %}
+                </select>
             </div>
-            <div class='container'>
-                <button class="btn btn-primary btn-lg col-md-4" id='preview'>Preview</button>
-                <button class="btn btn-primary btn-lg col-md-4" id='download'>Download</button>
-                <button class="btn btn-primary btn-lg col-md-4" id='twitter'>Twitter</button>
+            <div class='form-group col-md-2 line-numbers'>
+                <label>
+                    <input type="checkbox" name='line_numbers' id='line_numbers'> Line numbers
+                    <sup>
+                        <a href='#' data-toggle="popover" data-trigger="focus" data-placement="top" title='Checking this will include line numbers on the generated image.'>[?]</a>
+                    </sup>
+                </label>
+            </div>
+            <div class='form-group col-md-12'>
+                <label>Your code: 
+                    <sup>
+                        <a href='#' data-toggle="popover" data-trigger="focus" data-placement="top" title='Paste or write your code here. There is a maximum length of 5000 characters to limit load on the server.'>[?]</a>
+                    </sup>
+                </label>
+                <textarea name='code_text' id='code_text' class='form-control' rows='5' maxlength='5000' placeholder='Your Code Here (Max Length 5000 chars)'></textarea>
+            </div>
+            <div class='form-group col-md-12' class=>
+                <label>Your tweet: 
+                    <sup>
+                        <a href='#' data-toggle="popover" data-trigger="focus" data-placement="top" title='The link to the uploaded image takes up about 30 characters of your tweet. You can use the reat of the characters to add a message along your image.'>[?]</a>
+                    </sup>
+                </label>
+                <textarea name='tweet_text' id='tweet_text' class='form-control' maxlength='110' placeholder='Max Length 110 chars'></textarea>
+            </div>
+            <div class='button-bar'>
+                <button class="btn btn-primary btn-lg col-md-4" id='preview'>Preview Image</button>
+                <button class="btn btn-primary btn-lg col-md-4" id='download'>Download Image</button>
+                <button class="btn btn-info btn-lg col-md-4" id='twitter'>Tweet Your Code!</button>
             </div>
         </form>
-        <div id='preview_img'></div>
     </div>
+    <div id='preview_img' class='container'></div>
+    <footer class='social-link-footer'>
+        <div class='footer-image-wrapper'>
+            <a href="https://github.com/markableidinger">
+                <img src="/static/images/GitHub-Mark/PNG/GitHub-Mark-Light-64px.png" class="social-link github-link" data-toggle="tooltip" title="Mark Ableidinger's Github Profile">
+            </a>
+            <a href="https://twitter.com/markableidinger">
+                <img src="/static/images/Twitter_logo_white.png" class="social-link twitter-link" data-toggle="tooltip" title="@markableidinger on Twitter">
+            </a>
+            <a href="https://linkedin.com/in/markableidinger">
+                <img src="/static/images/Linkedin_logo/In-White-66px-R.png" class="social-link linkedin-link" data-toggle="tooltip" title="Mark Ableidinger's Linkedin Profile">
+            </a>
+        </div>
+    </footer>
 </body>
 </html>

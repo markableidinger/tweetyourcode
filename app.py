@@ -47,7 +47,7 @@ def preview_img():
         request.args.get('line_numbers', 0, type=int))
     img_io = io.BytesIO(base64.b64encode(img))
     img_io.seek(0)
-    img_tag = '<img src="data:image/png;base64,' + img_io.getvalue() + '"/>'
+    img_tag = '<img class="preview-img" src="data:image/png;base64,' + img_io.getvalue() + '"/>'
     return jsonify(tag=img_tag)
 
 

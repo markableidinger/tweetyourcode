@@ -2,6 +2,14 @@ body {
     background-color: #1dcaff;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
+label {
+    font-weight: 500;
+}
+
 .top-dropdown {
     padding-left: 0px;
 }
@@ -14,6 +22,62 @@ body {
     color: white;
     text-align: center;
     margin-top: 75px;
-    margin-bottom: 75px;
+    margin-bottom: 50px;
     font-family: 'Open Sans', sans-serif;
 }
+
+.summary {
+    text-align: center;
+    margin-bottom: 75px;
+    padding: 0 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+}
+
+.white-background {
+    background-color: white;
+    border-radius: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.preview-img {
+    margin: auto;
+    display: block;
+}
+
+.popover-wider {
+    width: 200px;
+}
+
+.social-link {
+    display: inline-block;
+    opacity: 0.75;
+}
+
+.twitter-link {
+    height: 64px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.social-link-footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:80px;
+    width:100%;
+    text-align: center;
+    z-index: -1;
+}
+
+.footer-image-wrapper {
+    display: inline-block;
+}
+
+.social-link:hover {
+    opacity: 1;
+}
+
+
