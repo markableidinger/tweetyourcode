@@ -1,0 +1,13 @@
+---
+
+- name: Launch EC2 Instance
+  local_action:
+    module: ec2
+    keypair: "{{ key_name }}"
+    instance_type: "{{ instance_type }}"
+    image: "{{ ami_id }}"
+    wait: true
+    region: "{{ aws_region }}"
+    instance_tags: "{{ instance_tags }}"
+    exact_count: "{{ count }}"
+  register: ec2

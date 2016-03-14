@@ -1,0 +1,6 @@
+- name: Create ec2 instance
+  hosts: localhost
+  roles:
+    - ec2_provisioning
+
+

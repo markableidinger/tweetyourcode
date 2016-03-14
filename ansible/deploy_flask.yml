@@ -1,0 +1,4 @@
+- name: Deploy Flask to instance
+  hosts: tag_Name_TYC
+  roles:
+    - flask

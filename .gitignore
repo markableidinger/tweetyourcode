@@ -68,3 +68,9 @@ credentials.json
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Ansible secrets
+group_vars
+group_vars/*
+hosts
+*.retry
